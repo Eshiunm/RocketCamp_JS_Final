@@ -3,13 +3,12 @@ import path from './apiNext.js';
 const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
 const totalAmount = document.querySelector('.total-amount');
-console.log(totalAmount);
 
 // function Render Cart
 function render(ary) {
   let str = '';
   ary.forEach((item) => {
-    str += `<tr>
+    str += `<tr data-id="${item.id}">
     <td class="border-b border-[#BFBFBF] py-5 pr-5">
       <div class="flex items-center">
         <img
@@ -52,5 +51,18 @@ function getCart(token) {
       console.log(err);
     });
 }
-
 getCart('mosi');
+
+// delete CartOne
+cart.addEventListener('click', (e) => {
+  const id = e.target.parentNode.parentNode.parentNode.getAttribute('data-id');
+  axios
+    .delete(path.cartsDeleteOne('mosi', id))
+    .then((res) => {
+      getCart('mosi');
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
