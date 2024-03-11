@@ -1,3 +1,1 @@
-// import xxx form xxx
-
-// xxx();
+import products from './api/products.js';
