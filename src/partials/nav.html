@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/output.css" />
+    <title>navbar</title>
+  </head>
+  <body>
+    <header class="font-NotoSansTC h-[6.25rem]">
+      <div
+        class="container mx-auto my-0 h-28 flex items-center justify-between"
+      >
+        <h1 class="text-2xl font-black font-Geeza">WOWOROOM</h1>
+        <label class="">
+          <input type="checkbox" class="hidden peer" />
+          <img
+            src="../../public\images\menu_FILL0_wght400_GRAD0_opsz24.svg"
+            alt="burger menu"
+            class="menu-btn md:hidden w-9 h-9"
+          />
+          <ul
+            class="container peer-checked:flex w-screen h-screen hidden flex-col bg-white gap-12 px-0 items-center absolute inset-x-0 top-36 text-6xl"
+          >
+            <li class="hover:text-purple-hover"><a href="#">床墊優勢</a></li>
+            <li class="hover:text-purple-hover"><a href="#">好評推薦</a></li>
+            <li class="hover:text-purple-hover"><a href="#">運送方式</a></li>
+            <li class="hover:text-purple-hover"><a href="#">立即預訂</a></li>
+          </ul>
+        </label>
+
+        <ul class="hidden md:flex gap-12 justify-center items-center text-xl">
+          <li class="hover:text-purple-hover"><a href="#">床墊優勢</a></li>
+          <li class="hover:text-purple-hover"><a href="#">好評推薦</a></li>
+          <li class="hover:text-purple-hover"><a href="#">運送方式</a></li>
+          <li class="hover:text-purple-hover"><a href="#">立即預訂</a></li>
+        </ul>
+      </div>
+      <div class="bg-black w-full h-5 md:h-10"></div>
+    </header>
+
+    <script src="../script/all.js" type="module"></script>
+  </body>
+</html>
