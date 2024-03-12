@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-tw ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WOWOROOM</title>
+    <link rel="stylesheet" href="./src/styles/c3.min.css" />
+    <link rel="stylesheet" href="./src/styles/output.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="font-NotoSansTC border-b-[40px] border-black py-9">
+      <div class="container flex justify-between items-center">
+        <h1 class="py-1">
+          <a class="text-2xl font-black py-1" href="./index.html">WOWOROOM</a>
+        </h1>
+        <ul class="flex gap-10 justify-end text-xl">
+          <li>
+            <a class="p-2 hover:text-purple-hover" href="#">後台管理</a>
+          </li>
+          <li>
+            <a class="p-2 hover:text-purple-hover" href="#">管理員登入</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- 圖表 -->
+    <section>
+      <div class="container py-[60px]">
+        <h1 class="mb-[98px] text-[28px] font-normal text-center">
+          全產品類別營收比重
+        </h1>
+        <div id="chart"></div>
+      </div>
+    </section>
+    <!-- 訂單列表 -->
+    <section>
+      <div class="container">
+        <table>
+          <thead>
+            <tr>
+              <td width="133px" class="pl-4 py-3 border border-black">
+                訂單編號
+              </td>
+              <td width="124px" class="pl-4 py-3 border border-black">
+                聯絡人
+              </td>
+              <td width="217px" class="pl-4 py-3 border border-black">
+                聯絡地址
+              </td>
+              <td width="207px" class="pl-4 py-3 border border-black">
+                電子郵件
+              </td>
+              <td width="152px" class="pl-4 py-3 border border-black">
+                訂單品項
+              </td>
+              <td width="117px" class="pl-4 py-3 border border-black">
+                訂單日期
+              </td>
+              <td width="96px" class="pl-4 py-3 border border-black">
+                訂單狀態
+              </td>
+              <td width="64px" class="pl-4 py-3 border border-black">狀態</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pl-4 py-3 border border-black">10088377474</td>
+              <td class="pl-4 py-3 border border-black">小杰 0912345678</td>
+              <td class="pl-4 py-3 border border-black">
+                高雄市前鎮區六合路183巷66號
+              </td>
+              <td class="pl-4 py-3 border border-black">
+                cccexample@gmail.com
+              </td>
+              <td class="pl-4 py-3 border border-black">Louvre 雙人床架</td>
+              <td class="pl-4 py-3 border border-black">2021/03/08</td>
+              <td class="pl-4 py-3 border border-black">未處理</td>
+              <td class="border border-black">
+                <button
+                  class="bg-red-danger text-white px-3 py-[7px] block mx-auto hover:bg-white hover:text-red-danger hover:font-bold"
+                >
+                  刪除
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <script src="./src/script/axios.min.js"></script>
+    <script src="./src/script/d3.min.js"></script>
+    <script src="./src/script/c3.min.js"></script>
+    <script src="./src/script/chart.js"></script>
+  </body>
+</html>
