@@ -1,4 +1,4 @@
-import path from './apiNext.js';
+import path from './apiAll.js';
 
 function products(token) {
   axios
