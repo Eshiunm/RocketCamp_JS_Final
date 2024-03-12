@@ -6,7 +6,7 @@ const categorySelector = document.querySelector('.category-selector');
 function render(ary) {
   let str = '';
   ary.forEach((item) => {
-    str += `<div class="relative" data-category="${item.category}" data-id="${item.id}" data-description="${item.description}">
+    str += `<li><div class="relative" data-category="${item.category}" data-id="${item.id}" data-description="${item.description}">
     <span
       class="min-w-[88px] min-h-[44px] bg-black text-white inline-flex justify-center items-center absolute top-3 left-[171px]"
       ><span
@@ -26,7 +26,7 @@ function render(ary) {
     <p class="text-xl my-2">${item.title}</p>
     <p class="text-xl line-through">NT$${item.origin_price}</p>
     <p class="text-[28px]">NT$${item.price}</p>
-  </div>`;
+  </div></li>`;
 
     productList.innerHTML = str;
   });

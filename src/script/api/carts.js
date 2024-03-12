@@ -3,7 +3,6 @@ import path from './apiAll.js';
 const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
 const totalAmount = document.querySelector('.total-amount');
-const deleteBtn = document.querySelector('.delete-all-btn');
 
 // function Render Cart
 function render(ary) {
@@ -53,6 +52,26 @@ function getCart(token) {
     });
 }
 getCart('mosi');
+
+// add Cart
+productList.addEventListener('click', (e) => {
+  const id = e.target.parentNode.getAttribute('data-id');
+  const data = {
+    data: {
+      productId: id,
+      quantity: 1,
+    },
+  };
+  axios
+    .post(path.carts('mosi'), data)
+    .then((res) => {
+      getCart('mosi');
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 // delete CartOne
 cart.addEventListener('click', (e) => {
