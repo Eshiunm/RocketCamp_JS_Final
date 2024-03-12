@@ -66,3 +66,23 @@ cart.addEventListener('click', (e) => {
       console.log(err);
     });
 });
+
+// add Cart
+productList.addEventListener('click', (e) => {
+  const id = e.target.parentNode.getAttribute('data-id');
+  const data = {
+    data: {
+      productId: id,
+      quantity: 1,
+    },
+  };
+  axios
+    .post(path.carts('mosi'), data)
+    .then((res) => {
+      getCart('mosi');
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
