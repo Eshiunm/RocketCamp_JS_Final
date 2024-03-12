@@ -53,6 +53,26 @@ function getCart(token) {
 }
 getCart('mosi');
 
+// add Cart
+productList.addEventListener('click', (e) => {
+  const id = e.target.parentNode.getAttribute('data-id');
+  const data = {
+    data: {
+      productId: id,
+      quantity: 1,
+    },
+  };
+  axios
+    .post(path.carts('mosi'), data)
+    .then((res) => {
+      getCart('mosi');
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 // delete CartOne
 cart.addEventListener('click', (e) => {
   const id = e.target.parentNode.parentNode.parentNode.getAttribute('data-id');
@@ -67,17 +87,10 @@ cart.addEventListener('click', (e) => {
     });
 });
 
-// add Cart
-productList.addEventListener('click', (e) => {
-  const id = e.target.parentNode.getAttribute('data-id');
-  const data = {
-    data: {
-      productId: id,
-      quantity: 1,
-    },
-  };
+//delete cartAll
+deleteBtn.addEventListener('click', () => {
   axios
-    .post(path.carts('mosi'), data)
+    .delete(path.carts('mosi'))
     .then((res) => {
       getCart('mosi');
       return res;
