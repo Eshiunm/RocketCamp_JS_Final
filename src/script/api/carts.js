@@ -3,6 +3,7 @@ import path from './apiAll.js';
 const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
 const totalAmount = document.querySelector('.total-amount');
+const deleteBtn = document.querySelector('.delete-all-btn');
 
 // function Render Cart
 function render(ary) {
@@ -58,6 +59,19 @@ cart.addEventListener('click', (e) => {
   const id = e.target.parentNode.parentNode.parentNode.getAttribute('data-id');
   axios
     .delete(path.cartsDeleteOne('mosi', id))
+    .then((res) => {
+      getCart('mosi');
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+//delete cartAll
+deleteBtn.addEventListener('click', () => {
+  axios
+    .delete(path.carts('mosi'))
     .then((res) => {
       getCart('mosi');
       return res;
