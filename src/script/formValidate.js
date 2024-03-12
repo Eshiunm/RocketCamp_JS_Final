@@ -1,17 +1,22 @@
+/* eslint-disable import/extensions */
 /* eslint-disable comma-dangle */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-undef */
+
+import submit from './api/orderClient.js';
+
 const guestForm = document.querySelector('#guestForm');
+
 // 建立表單約束條件
 const constraints = {
   // 顧客姓名欄位驗證
-  guestName: {
+  name: {
     presence: {
       message: '&必填！',
     },
   },
   // 電話欄位驗證
-  guestPhone: {
+  tel: {
     presence: {
       message: '&必填！',
     },
@@ -21,7 +26,7 @@ const constraints = {
     },
   },
   // email 欄位驗證
-  guestEmail: {
+  email: {
     presence: {
       message: '&必填！',
     },
@@ -30,7 +35,7 @@ const constraints = {
     },
   },
   // 地址欄位驗證
-  guestAddress: {
+  address: {
     presence: {
       message: '&必填！',
     },
@@ -74,7 +79,7 @@ function resetFormGroup(formGroup) {
 // 對驗證沒過的欄位附上錯誤訊息
 function showErrorsForInput(input, errors) {
   const formGroup = closestParent(input.parentNode, 'form-group');
-  messages = formGroup.querySelector('.messages');
+  const messages = formGroup.querySelector('.messages');
 
   // 附上錯誤訊息之前先清除原有的錯誤訊息
   resetFormGroup(formGroup);
@@ -101,7 +106,7 @@ function handleFormSubmit(form) {
   showErrors(form, errors || {});
   // 沒錯就執行要做的事
   if (!errors) {
-    doLogin();
+    submit(form);
   }
 }
 

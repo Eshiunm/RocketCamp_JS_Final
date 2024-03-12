@@ -490,14 +490,14 @@
         <form id="guestForm" class="max-w-[350px] mx-auto">
           <!-- 客戶填寫姓名 -->
           <div class="form-group relative mb-5">
-            <label class="inline-block mb-[6px]" for="guestName"
+            <label class="inline-block mb-[6px]" for="name"
               >姓名<span class="text-red-error">*</span></label
             >
             <input
               class="block w-full py-2 pl-3 outline-none border-[1.5px] border-gray-light rounded focus:border-black"
               type="text"
-              name="guestName"
-              id="guestName"
+              name="name"
+              id="name"
               placeholder="請輸入姓名"
             />
             <!-- 驗證沒過的錯誤訊息 -->
@@ -505,14 +505,14 @@
           </div>
           <!-- 客戶填寫電話 -->
           <div class="form-group relative mb-5">
-            <label class="inline-block mb-[6px]" for="guestPhone"
+            <label class="inline-block mb-[6px]" for="tel"
               >電話<span class="text-red-error">*</span></label
             >
             <input
               class="block w-full py-2 pl-3 outline-none border-[1.5px] border-gray-light rounded focus:border-black"
               type="tel"
-              name="guestPhone"
-              id="guestPhone"
+              name="tel"
+              id="tel"
               placeholder="請輸入電話"
             />
             <!-- 驗證沒過的錯誤訊息 -->
@@ -520,14 +520,14 @@
           </div>
           <!-- 客戶填寫 Email -->
           <div class="form-group relative mb-5">
-            <label class="inline-block mb-[6px]" for="guestEmail"
+            <label class="inline-block mb-[6px]" for="email"
               >Email<span class="text-red-error">*</span></label
             >
             <input
               class="block w-full py-2 pl-3 outline-none border-[1.5px] border-gray-light rounded focus:border-black"
               type="email"
-              name="guestEmail"
-              id="guestEmail"
+              name="email"
+              id="email"
               placeholder="請輸入 Email"
             />
             <!-- 驗證沒過的錯誤訊息 -->
@@ -535,14 +535,14 @@
           </div>
           <!-- 寄送地址 -->
           <div class="form-group relative mb-5">
-            <label class="inline-block mb-[6px]" for="guestAddress"
+            <label class="inline-block mb-[6px]" for="address"
               >寄送地址<span class="text-red-error">*</span></label
             >
             <input
               class="block w-full py-2 pl-3 outline-none border-[1.5px] border-gray-light rounded focus:border-black"
               type="address"
-              name="guestAddress"
-              id="guestAddress"
+              name="address"
+              id="address"
               placeholder="請輸入寄送地址"
             />
             <!-- 驗證沒過的錯誤訊息 -->
@@ -550,17 +550,17 @@
           </div>
           <!-- 交易方式 -->
           <div class="form-group relative mb-5">
-            <label class="inline-block mb-[6px]" for="paymentMethod"
+            <label class="inline-block mb-[6px]" for="payment"
               >交易方式<span class="text-red-error">*</span></label
             >
             <select
               class="w-full py-2 px-3 border-[1.5px] border-gray-light rounded outline-none focus:border-black"
-              name="paymentMethod"
-              id="paymentMethod"
+              name="payment"
+              id="payment"
             >
               <option value="atm">ATM</option>
-              <option value="credit_card">信用卡</option>
-              <option value="convenience_store">超商付款</option>
+              <option value="creditCard">信用卡</option>
+              <option value="store">超商付款</option>
             </select>
           </div>
           <button
@@ -575,7 +575,7 @@
     <script src="./src/script/axios.min.js"></script>
     <script src="./src/script/underscore-min.js"></script>
     <script src="./src/script/validate.min.js"></script>
-    <script src="./src/script/formValidate.js"></script>
+    <script type="module" src="./src/script/formValidate.js"></script>
     <script type="module" src="./src/script/api/products.js"></script>
     <script type="module" src="./src/script/api/carts.js"></script>
     <script type="module" src="./src/script/api/orderClient.js"></script>
