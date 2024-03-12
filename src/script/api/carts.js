@@ -3,6 +3,7 @@ import path from './apiAll.js';
 const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
 const totalAmount = document.querySelector('.total-amount');
+const deleteBtn = document.querySelector('.delete-all-btn');
 
 // function Render Cart
 function render(ary) {
