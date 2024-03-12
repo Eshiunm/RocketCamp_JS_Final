@@ -37,6 +37,7 @@ const constraints = {
   },
 };
 
+// 顯示錯誤訊息
 function addError(messages, error) {
   const index = error.indexOf('&');
   const errorMessage = error.substring(index + 1);
@@ -52,6 +53,7 @@ function addError(messages, error) {
   messages.appendChild(block);
 }
 
+// 找父節點
 function closestParent(child, className) {
   if (!child || child === document) {
     return null;
@@ -62,16 +64,21 @@ function closestParent(child, className) {
   return closestParent(child.parentNode, className);
 }
 
+// 移除表單欄位的錯誤訊息
 function resetFormGroup(formGroup) {
   _.each(formGroup.querySelectorAll('.help-block.error'), (el) => {
     el.parentNode.removeChild(el);
   });
 }
 
+// 對驗證沒過的欄位附上錯誤訊息
 function showErrorsForInput(input, errors) {
   const formGroup = closestParent(input.parentNode, 'form-group');
   messages = formGroup.querySelector('.messages');
+
+  // 附上錯誤訊息之前先清除原有的錯誤訊息
   resetFormGroup(formGroup);
+
   if (errors) {
     _.each(errors, (error) => {
       addError(messages, error);
@@ -79,22 +86,20 @@ function showErrorsForInput(input, errors) {
   }
 }
 
-// 更新欄位錯誤訊息
+// 搜尋所有具 name 屬性的 input 欄位
 function showErrors(form, errors) {
-  // 針對所有 input 欄位跑迴圈，驗證沒過的欄位附上錯誤訊息
-  _.each(
-    // 搜尋所有帶 name 屬性的 input 欄位，然後針對這些欄位跑迴圈
-    form.querySelectorAll('input[name]'),
-    (input) => {
-      showErrorsForInput(input, errors && errors[input.name]);
-    }
-  );
+  // 搜尋所有具 name 屬性的 input 欄位，並針對這些欄位逐一地跑迴圈
+  _.each(form.querySelectorAll('input[name]'), (input) => {
+    showErrorsForInput(input, errors && errors[input.name]);
+  });
 }
 
+// 處理表單提交
 function handleFormSubmit(form) {
   const errors = validate(form, constraints);
+  // 有錯就顯示錯誤訊息
   showErrors(form, errors || {});
-  // 表單驗證無誤，執行要做的事
+  // 沒錯就執行要做的事
   if (!errors) {
     doLogin();
   }
