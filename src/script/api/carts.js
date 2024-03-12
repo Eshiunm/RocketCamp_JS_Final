@@ -1,4 +1,4 @@
-import path from './apiNext.js';
+import path from './apiAll.js';
 
 const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
