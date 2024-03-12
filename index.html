@@ -412,106 +412,16 @@
         <select
           name="products"
           id=""
-          class="mt-[4.5rem] w-[255px] h-[38px] py-1 px-3 border border-grey-light rounded-md"
+          class="category-selector mt-[4.5rem] w-[255px] h-[38px] py-1 px-3 border border-grey-light rounded-md"
         >
+          <option value="全部">全部</option>
           <option value="收納">收納</option>
           <option value="床架">床架</option>
           <option value="窗簾">窗簾</option>
         </select>
-        <ul class="mt-8 flex flex-wrap gap-[30px] justify-center">
-          <li>
-            <div class="relative">
-              <span
-                class="min-w-[88px] min-h-[44px] bg-black text-white inline-flex justify-center items-center absolute top-3 left-[171px]"
-                ><span
-                  class="text-lg text-center leading-none relative bottom-[3px]"
-                  >新品</span
-                ></span
-              >
-              <img
-                src="../../public/images/products/photo-1549388604-817d15aa0110-3.png"
-                alt=""
-              /><button
-                type="button"
-                class="w-[255px] h-12 bg-black text-white text-xl"
-              >
-                加入購物車
-              </button>
-              <p class="text-xl my-2">Antony 雙人床架 / 雙人加大</p>
-              <p class="text-xl line-through">NT$18,000</p>
-              <p class="text-[28px]">NT$12,000</p>
-            </div>
-          </li>
-          <li>
-            <div class="relative">
-              <span
-                class="min-w-[88px] min-h-[44px] bg-black text-white inline-flex justify-center items-center absolute top-3 left-[171px]"
-                ><span
-                  class="text-lg text-center leading-none relative bottom-[3px]"
-                  >新品</span
-                ></span
-              >
-              <img
-                src="../../public/images/products/photo-1549388604-817d15aa0110-3.png"
-                alt=""
-              /><button
-                type="button"
-                class="w-[255px] h-12 bg-black text-white text-xl"
-              >
-                加入購物車
-              </button>
-              <p class="text-xl my-2">Antony 雙人床架 / 雙人加大</p>
-              <p class="text-xl line-through">NT$18,000</p>
-              <p class="text-[28px]">NT$12,000</p>
-            </div>
-          </li>
-          <li>
-            <div class="relative">
-              <span
-                class="min-w-[88px] min-h-[44px] bg-black text-white inline-flex justify-center items-center absolute top-3 left-[171px]"
-                ><span
-                  class="text-lg text-center leading-none relative bottom-[3px]"
-                  >新品</span
-                ></span
-              >
-              <img
-                src="../../public/images/products/photo-1549388604-817d15aa0110-3.png"
-                alt=""
-              /><button
-                type="button"
-                class="w-[255px] h-12 bg-black text-white text-xl"
-              >
-                加入購物車
-              </button>
-              <p class="text-xl my-2">Antony 雙人床架 / 雙人加大</p>
-              <p class="text-xl line-through">NT$18,000</p>
-              <p class="text-[28px]">NT$12,000</p>
-            </div>
-          </li>
-          <li>
-            <div class="relative">
-              <span
-                class="min-w-[88px] min-h-[44px] bg-black text-white inline-flex justify-center items-center absolute top-3 left-[171px]"
-                ><span
-                  class="text-lg text-center leading-none relative bottom-[3px]"
-                  >新品</span
-                ></span
-              >
-              <img
-                src="../../public/images/products/photo-1549388604-817d15aa0110-3.png"
-                alt=""
-              /><button
-                type="button"
-                class="w-[255px] h-12 bg-black text-white text-xl"
-              >
-                加入購物車
-              </button>
-              <p class="text-xl my-2">Antony 雙人床架 / 雙人加大</p>
-              <p class="text-xl line-through">NT$18,000</p>
-              <p class="text-[28px]">NT$12,000</p>
-            </div>
-          </li>
-        </ul>
+        <ul
+          class="product-list mt-8 flex flex-wrap gap-[30px] justify-center"
+        ></ul>
       </div>
     </section>
     <!-- 購物車區塊 -->
@@ -552,7 +462,7 @@
                 <th width="15%"></th>
               </tr>
             </thead>
-            <tbody class="text-xl">
+            <tbody class="cart text-xl">
               <tr>
                 <td class="border-b border-[#BFBFBF] py-5 pr-5">
                   <div class="flex items-center">
@@ -623,7 +533,7 @@
             class="max-w-[280px] flex justify-between items-center gap-5 sm:gap-10 md:gap-20 hover:bg-white"
           >
             <span class="sm:text-xl text-sm">總金額</span>
-            <span class="sm:text-[28px] text-lg">NT$24,780</span>
+            <span class="total-amount sm:text-[28px] text-lg">NT$24,780</span>
           </div>
         </div>
       </div>
