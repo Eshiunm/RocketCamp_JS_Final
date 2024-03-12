@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" href="./src/styles/output.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <title>WOWOROOM</title>
   </head>
   <body>
     <!-- 導覽列 -->
@@ -16,7 +16,9 @@
       <div
         class="container mx-auto my-0 h-28 flex items-center justify-between"
       >
-        <h1 class="text-2xl font-black font-Geeza">WOWOROOM</h1>
+        <h1 class="text-2xl font-black font-Geeza">
+          <a href="#landing">WOWOROOM</a>
+        </h1>
         <label class="">
           <input type="checkbox" class="hidden peer" />
           <img
@@ -31,20 +33,30 @@
             <li class="hover:text-purple-hover"><a href="#">好評推薦</a></li>
             <li class="hover:text-purple-hover"><a href="#">運送方式</a></li>
             <li class="hover:text-purple-hover"><a href="#">立即預訂</a></li>
+            <li class="hover:text-purple-hover"><a href="#">後台管理</a></li>
           </ul>
         </label>
 
         <ul class="hidden md:flex gap-12 justify-center items-center text-xl">
-          <li class="hover:text-purple-hover"><a href="#">床墊優勢</a></li>
-          <li class="hover:text-purple-hover"><a href="#">好評推薦</a></li>
-          <li class="hover:text-purple-hover"><a href="#">運送方式</a></li>
-          <li class="hover:text-purple-hover"><a href="#">立即預訂</a></li>
+          <li class="hover:text-purple-hover">
+            <a href="#features">床墊優勢</a>
+          </li>
+          <li class="hover:text-purple-hover">
+            <a href="#recommendation">好評推薦</a>
+          </li>
+          <li class="hover:text-purple-hover">
+            <a href="#transportation">運送方式</a>
+          </li>
+          <li class="hover:text-purple-hover">
+            <a href="#products">立即預訂</a>
+          </li>
+          <li class="hover:text-purple-hover"><a href="#">後台管理</a></li>
         </ul>
       </div>
       <!-- <div class="bg-black w-full h-5 md:h-10"></div> -->
     </header>
     <!-- landing -->
-    <section class="">
+    <section id="landing">
       <div class="container pt-8">
         <div
           class="bg-[url('../../public/images/landing/photo-1552848469-b4c949fdded7.png')] bg-cover bg-no-repeat min-h-[420px] relative"
@@ -57,7 +69,7 @@
       </div>
     </section>
     <!-- features -->
-    <section class="">
+    <section id="features">
       <div class="container mt-[3.75rem] pb-12">
         <h2 class="text-[1.75rem] text-center">床墊優勢</h2>
         <ul
@@ -188,12 +200,12 @@
       </div>
     </section>
     <!-- recommendation -->
-    <section class="bg-purple-bg">
+    <section class="bg-purple-bg" id="recommendation">
       <div class="container text-center pt-[3.75rem] pb-20">
         <h2 class="text-white text-[2.5rem]">好評推薦</h2>
         <ul class="flex flex-col gap-5 mt-8 overflow-hidden">
           <li>
-            <ul class="flex gap-[1.875rem]">
+            <ul class="flex gap-[1.875rem] animate-marquee">
               <li class="flex bg-white min-w-[21.875rem] h-24 gap-4">
                 <img
                   src="../../public/images/recommendation/mobile/photo-1576354302919-96748cb8299e.png"
@@ -257,7 +269,7 @@
             </ul>
           </li>
           <li>
-            <ul class="flex gap-[1.875rem]">
+            <ul class="flex gap-[1.875rem] animate-marquee2">
               <li class="flex bg-white min-w-[21.875rem] h-24 gap-4">
                 <img
                   src="../../public/images/recommendation/mobile/photo-1549388604-817d15aa0110-1.png"
@@ -324,7 +336,7 @@
       </div>
     </section>
     <!-- transportation -->
-    <section class="font-NotoSansTC">
+    <section id="transportation">
       <div class="container mt-8">
         <h2 class="text-[1.75rem] text-center">運送方式</h2>
         <ul
@@ -407,7 +419,7 @@
       </div>
     </section>
     <!-- products -->
-    <section class="">
+    <section id="products">
       <div class="container">
         <select
           name="products"
@@ -484,7 +496,7 @@
       </div>
     </section>
     <!-- form -->
-    <section class="font-NotoSansTC">
+    <section>
       <div class="container pt-[60px] pb-20">
         <h2 class="mb-8 text-center text-[28px] leading-10">填寫預訂資料</h2>
         <form id="guestForm" class="max-w-[350px] mx-auto">

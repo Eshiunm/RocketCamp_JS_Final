@@ -39,6 +39,24 @@ module.exports = {
         lg: '960px', // => @media (min-width: 960px) { ... }
         xl: '1140px', // => @media (min-width: 1140px) { ... }
       },
+      animation: {
+        marquee: 'slide 12s linear infinite',
+        marquee2: 'slide-reverse 12s linear infinite',
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        'slide-reverse': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
     },
   },
   plugins: [],
