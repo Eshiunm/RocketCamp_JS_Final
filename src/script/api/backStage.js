@@ -164,7 +164,9 @@ deleteAllBtn.addEventListener('click', () => {
       },
     })
     .then((res) => {
-      renderTable(res.data.orders);
+      orderData = res.data.orders;
+      renderTable(orderData);
+      renderChartProductCategory();
     })
     .catch((err) => {
       console.log(err);
@@ -182,7 +184,10 @@ orderTableBody.addEventListener('click', (e) => {
         },
       })
       .then((res) => {
-        renderTable(res.data.orders);
+        orderData = res.data.orders;
+        renderTable(orderData);
+        // 如果是「全品項」，就改渲染「全產品類別」
+        renderChartProductCategory();
       })
       .catch((err) => {
         console.log(err);
