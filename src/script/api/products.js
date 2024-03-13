@@ -57,9 +57,14 @@ function products(token) {
     });
 }
 
-const hexschoolPath = prompt(
-  '請輸入個人專屬 Path，若尚未持有，請先至 https://livejs-api.hexschool.io/ 申請'
-);
-window.sessionStorage.setItem('path', hexschoolPath);
-const sessionPath = sessionStorage.getItem('path');
-products(sessionPath);
+if (sessionStorage.getItem('path')) {
+  const sessionPath = sessionStorage.getItem('path');
+  products(sessionPath);
+} else {
+  const hexschoolPath = prompt(
+    '請輸入個人專屬 Path，若尚未持有，請先至 https://livejs-api.hexschool.io/ 申請'
+  );
+  window.sessionStorage.setItem('path', hexschoolPath);
+  const sessionPath = sessionStorage.getItem('path');
+  products(sessionPath);
+}
