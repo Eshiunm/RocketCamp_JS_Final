@@ -4,6 +4,7 @@ const productList = document.querySelector('.product-list');
 const cart = document.querySelector('.cart');
 const totalAmount = document.querySelector('.total-amount');
 const deleteBtn = document.querySelector('.delete-all-btn');
+let sessionPath = '';
 
 // function Render Cart
 function render(ary) {
@@ -52,8 +53,23 @@ function getCart(token) {
       console.log(err);
     });
 }
-getCart('mosi');
 
+function hasSessionPath() {
+  if (sessionStorage.getItem('path')) {
+    sessionPath = sessionStorage.getItem('path');
+  } else {
+    const hexschoolPath = prompt(
+      '請輸入個人專屬 Path，若尚未持有，請先至 https://livejs-api.hexschool.io/ 申請'
+    );
+    window.sessionStorage.setItem('path', hexschoolPath);
+    sessionPath = sessionStorage.getItem('path');
+  }
+  return sessionPath;
+}
+
+hasSessionPath();
+
+getCart(sessionPath);
 // add Cart
 productList.addEventListener('click', (e) => {
   const id = e.target.parentNode.getAttribute('data-id');
@@ -64,9 +80,9 @@ productList.addEventListener('click', (e) => {
     },
   };
   axios
-    .post(path.carts('mosi'), data)
+    .post(path.carts(sessionPath), data)
     .then((res) => {
-      getCart('mosi');
+      getCart(sessionPath);
       return res;
     })
     .catch((err) => {
@@ -78,9 +94,9 @@ productList.addEventListener('click', (e) => {
 cart.addEventListener('click', (e) => {
   const id = e.target.parentNode.parentNode.parentNode.getAttribute('data-id');
   axios
-    .delete(path.cartsDeleteOne('mosi', id))
+    .delete(path.cartsDeleteOne(sessionPath, id))
     .then((res) => {
-      getCart('mosi');
+      getCart(sessionPath);
       return res;
     })
     .catch((err) => {
@@ -91,9 +107,9 @@ cart.addEventListener('click', (e) => {
 //delete cartAll
 deleteBtn.addEventListener('click', () => {
   axios
-    .delete(path.carts('mosi'))
+    .delete(path.carts(sessionPath))
     .then((res) => {
-      getCart('mosi');
+      getCart(sessionPath);
       return res;
     })
     .catch((err) => {
