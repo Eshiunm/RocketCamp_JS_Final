@@ -17,7 +17,7 @@ function render(ary) {
           src="${item.product.images}"
           alt="商品圖片"
         />
-        <span class="font-normal ml-4">Charles 系列儲物組合</span>
+        <span class="font-normal ml-4">${item.product.title}</span>
       </div>
     </td>
     <td class="border-b border-[#BFBFBF] py-5 pr-5">
