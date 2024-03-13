@@ -35,8 +35,16 @@
     </section>
     <!-- 訂單列表 -->
     <section>
-      <div class="container">
-        <table>
+      <div class="container pb-28">
+        <div class="flex justify-end mb-3">
+          <button
+            class="py-[10px] px-[20px] border-[1px] border-black rounded-sm hover:bg-black hover:text-white"
+            id="delteAllBtn"
+          >
+            清除全部訂單
+          </button>
+        </div>
+        <table class="orderTable">
           <thead>
             <tr>
               <td width="133px" class="pl-4 py-3 border border-black">
@@ -63,34 +71,13 @@
               <td width="64px" class="pl-4 py-3 border border-black">狀態</td>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="pl-4 py-3 border border-black">10088377474</td>
-              <td class="pl-4 py-3 border border-black">小杰 0912345678</td>
-              <td class="pl-4 py-3 border border-black">
-                高雄市前鎮區六合路183巷66號
-              </td>
-              <td class="pl-4 py-3 border border-black">
-                cccexample@gmail.com
-              </td>
-              <td class="pl-4 py-3 border border-black">Louvre 雙人床架</td>
-              <td class="pl-4 py-3 border border-black">2021/03/08</td>
-              <td class="pl-4 py-3 border border-black">未處理</td>
-              <td class="border border-black">
-                <button
-                  class="bg-red-danger text-white px-3 py-[7px] block mx-auto hover:bg-white hover:text-red-danger hover:font-bold"
-                >
-                  刪除
-                </button>
-              </td>
-            </tr>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </section>
     <script src="./src/script/axios.min.js"></script>
     <script src="./src/script/d3.min.js"></script>
     <script src="./src/script/c3.min.js"></script>
-    <script src="./src/script/chart.js"></script>
+    <script type="module" src="./src/script/backStage.js"></script>
   </body>
 </html>
