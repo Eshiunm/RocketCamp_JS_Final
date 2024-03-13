@@ -24,22 +24,32 @@
         </ul>
       </div>
     </header>
+
     <!-- 圖表 -->
-    <section>
-      <div class="container py-[60px]">
+    <section class="chartSection">
+      <div class="container pt-[60px]">
         <h1 class="mb-[98px] text-[28px] font-normal text-center">
           全產品類別營收比重
         </h1>
-        <div id="chart"></div>
+        <div id="chart" data-class="productCategory"></div>
+        <div class="flex justify-end mb-3">
+          <button
+            class="w-[138.67px] py-[10px] border-[1.5px] border-black rounded-sm hover:bg-black hover:text-white"
+            id="changeChartBtn"
+          >
+            變更圖表
+          </button>
+        </div>
       </div>
     </section>
+
     <!-- 訂單列表 -->
     <section>
       <div class="container pb-28">
         <div class="flex justify-end mb-3">
           <button
-            class="py-[10px] px-[20px] border-[1px] border-black rounded-sm hover:bg-black hover:text-white"
-            id="delteAllBtn"
+            class="py-[10px] px-[20px] border-[1.5px] border-black rounded-sm hover:bg-black hover:text-white"
+            id="deleteAllBtn"
           >
             清除全部訂單
           </button>
@@ -47,28 +57,30 @@
         <table class="orderTable">
           <thead>
             <tr>
-              <td width="133px" class="pl-4 py-3 border border-black">
+              <td width="133px" class="pl-4 py-3 border-[1.5px] border-black">
                 訂單編號
               </td>
-              <td width="124px" class="pl-4 py-3 border border-black">
+              <td width="124px" class="pl-4 py-3 border-[1.5px] border-black">
                 聯絡人
               </td>
-              <td width="217px" class="pl-4 py-3 border border-black">
+              <td width="170px" class="pl-4 py-3 border-[1.5px] border-black">
                 聯絡地址
               </td>
-              <td width="207px" class="pl-4 py-3 border border-black">
+              <td width="157px" class="pl-4 py-3 border-[1.5px] border-black">
                 電子郵件
               </td>
-              <td width="152px" class="pl-4 py-3 border border-black">
+              <td width="249px" class="pl-4 py-3 border-[1.5px] border-black">
                 訂單品項
               </td>
-              <td width="117px" class="pl-4 py-3 border border-black">
+              <td width="117px" class="pl-4 py-3 border-[1.5px] border-black">
                 訂單日期
               </td>
-              <td width="96px" class="pl-4 py-3 border border-black">
+              <td width="96px" class="pl-4 py-3 border-[1.5px] border-black">
                 訂單狀態
               </td>
-              <td width="64px" class="pl-4 py-3 border border-black">狀態</td>
+              <td width="64px" class="pl-4 py-3 border-[1.5px] border-black">
+                狀態
+              </td>
             </tr>
           </thead>
           <tbody></tbody>
@@ -78,6 +90,6 @@
     <script src="./src/script/axios.min.js"></script>
     <script src="./src/script/d3.min.js"></script>
     <script src="./src/script/c3.min.js"></script>
-    <script type="module" src="./src/script/backStage.js"></script>
+    <script type="module" src="./src/script/api/backStage.js"></script>
   </body>
 </html>
