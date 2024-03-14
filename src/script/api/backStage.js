@@ -10,11 +10,23 @@ const orderTableBody = document.querySelector('.orderTable tbody'); // table bod
 const deleteAllBtn = document.querySelector('#deleteAllBtn'); // delete all button
 const changeChartBtn = document.querySelector('#changeChartBtn'); // change chart button
 const chart = document.querySelector('#chart');
+const chartTitle = document.querySelector('#chartTitle');
 
 // 表單資料
 let orderData = null;
 
-// 渲染「全品項營收比重」
+const chartPie = c3.generate({
+  bindto: '#chart',
+  data: {
+    columns: [],
+    type: 'pie',
+  },
+  legend: {
+    position: 'right',
+  },
+});
+
+// 渲染「全品項營收比重」圖表
 function renderChartItemRevenue() {
   const obj = {};
   orderData.forEach((item) => {
@@ -34,23 +46,21 @@ function renderChartItemRevenue() {
     arr.push(obj[item]);
     newData.push(arr);
   });
-  c3.generate({
-    bindto: '#chart',
-    data: {
-      columns: newData,
-      type: 'pie',
-      colors: {
-        窗簾: '#5434A7',
-        床架: '#DACBFF',
-        收納: '#9D7FEA',
-      },
+
+  // 先卸載舊資料，再載入新資料
+  chartPie.unload({
+    done: () => {
+      chartPie.load({
+        columns: newData,
+      });
     },
   });
+
   chart.removeAttribute('data-class');
   chart.setAttribute('data-class', 'itemRevenue');
 }
 
-// 渲染「全產品類別營收比重」
+// 渲染「全產品類別營收比重」圖表
 function renderChartProductCategory() {
   const obj = {};
   orderData.forEach((item) => {
@@ -70,30 +80,35 @@ function renderChartProductCategory() {
     arr.push(obj[item]);
     newData.push(arr);
   });
-  c3.generate({
-    bindto: '#chart',
-    data: {
-      columns: newData,
-      type: 'pie',
-      colors: {
-        窗簾: '#5434A7',
-        床架: '#DACBFF',
-        收納: '#9D7FEA',
-      },
+
+  // 先卸載舊資料，再載入新資料
+  chartPie.unload({
+    done: () => {
+      chartPie.load({
+        columns: newData,
+        colors: {
+          窗簾: '#5434A7',
+          床架: '#DACBFF',
+          收納: '#9D7FEA',
+        },
+      });
     },
   });
+
   chart.removeAttribute('data-class');
   chart.setAttribute('data-class', 'productCategory');
 }
 
 // 切換圖表
-changeChartBtn.addEventListener('click', () => {
+changeChartBtn.addEventListener('click', (e) => {
   // 判斷現在的圖表是「全產品類別」還是「全品項」
   if (chart.getAttribute('data-class') === 'productCategory') {
     // 如果是「全產品類別」，就改渲染「全品項」
+    chartTitle.textContent = '全品項營收比重';
     renderChartItemRevenue();
   } else {
     // 如果是「全品項」，就改渲染「全產品類別」
+    chartTitle.textContent = '全產品類別營收比重';
     renderChartProductCategory();
   }
 });
@@ -140,7 +155,7 @@ function renderTable(data) {
               <td class="pl-4 py-3 border-[1.5px] border-black">
               ${getRealDate(item.createdAt)}</td>
               <td class="pl-4 py-3 border-[1.5px] border-black">
-                <a class="p-1 text-[#0067CE] underline cursor-pointer">未處理</a>
+                <a class="p-1 text-[#0067CE] underline cursor-pointer" data-state="notProcess">未處理</a>
               </td>
               <td class="border-[1.5px] border-black">
                 <button
@@ -192,6 +207,19 @@ orderTableBody.addEventListener('click', (e) => {
       .catch((err) => {
         console.log(err);
       });
+  }
+});
+
+// 修改訂單狀態(已處理 & 未處理)
+orderTableBody.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') {
+    if (e.target.getAttribute('data-state') === 'notProcess') {
+      e.target.textContent = '已處理';
+      e.target.setAttribute('data-state', 'process');
+    } else {
+      e.target.textContent = '未處理';
+      e.target.setAttribute('data-state', 'notProcess');
+    }
   }
 });
 
