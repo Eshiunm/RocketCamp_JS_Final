@@ -2,19 +2,17 @@ import path from './apiAll.js';
 
 function orderPost(formData) {
   axios
-    .post(path.ordersCustomer('mosi'), formData)
+    .post(path.ordersCustomer(sessionStorage.getItem('path')), formData)
     .then((res) => {
-      console.log(res);
       alert('已送出訂單！');
     })
     .catch((error) => {
-      console.log(error.response.data.message);
       alert(error.response.data.message);
     });
 }
 
 function submit(form) {
-  let formData = {
+  const formData = {
     data: {
       user: {},
     },
