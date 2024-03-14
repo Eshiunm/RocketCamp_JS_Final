@@ -2,8 +2,8 @@
 import path from './apiAll.js';
 
 // API 相關資料
-const UID = 'YfUhuAyaz1PZFtU5riwjGtSFygo1';
-const apiPath = 'mosi';
+let UID = '';
+let apiPath = '';
 
 // DOM
 const orderTableBody = document.querySelector('.orderTable tbody'); // table body
@@ -241,8 +241,31 @@ function getOrder(userPath) {
     });
 }
 
+function authorization() {
+  if (sessionStorage.getItem('path')) {
+    apiPath = sessionStorage.getItem('path');
+  } else {
+    const hexschoolPath = prompt(
+      '請輸入個人專屬 Path，若尚未持有，請先至 https://livejs-api.hexschool.io/ 申請'
+    );
+    window.sessionStorage.setItem('path', hexschoolPath);
+    apiPath = sessionStorage.getItem('path');
+  }
+
+  if (sessionStorage.getItem('token')) {
+    UID = sessionStorage.getItem('token');
+  } else {
+    const hexschoolUID = prompt(
+      '請輸入個人專屬 ID，若尚未持有，請先至 https://livejs-api.hexschool.io/ 申請'
+    );
+    window.sessionStorage.setItem('token', hexschoolUID);
+    UID = sessionStorage.getItem('token');
+  }
+}
+
 // 初始化渲染圖跟表
 function initial() {
+  authorization();
   getOrder(apiPath);
 }
 
