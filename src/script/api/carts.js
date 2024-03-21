@@ -31,8 +31,8 @@ function render(ary) {
       <span class="block">NT$${item.product.price * item.quantity}</span>
     </td>
     <td class="border-b border-[#BFBFBF] py-5 text-center">
-      <button>
-        <img src="../images/icon-delete.svg" alt="刪除" />
+      <button class="pt-2 ">
+        <span class="material-symbols-outlined">close</span>
       </button>
     </td>
   </tr>`;
