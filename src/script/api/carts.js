@@ -141,7 +141,6 @@ cart.addEventListener('change', (e) => {
   axios
     .patch(path.carts(sessionPath), data)
     .then((res) => {
-      console.log(res);
       getCart(sessionPath);
       return res;
     })
