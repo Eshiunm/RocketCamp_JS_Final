@@ -1,13 +1,12 @@
-.button {
-  --background: #2b3044;
-  --background-hover: #1e2235;
-  --text: #fff;
+.delete-all-btn {
+  --background: #f7f7f7;
+  --background-hover: #ccd2d9;
   --shadow: rgba(0, 9, 61, 0.2);
   --paper: #5c86ff;
   --paper-lines: #fff;
-  --trash: #e1e6f9;
-  --trash-lines: #bbc1e1;
-  --check: #fff;
+  --trash: #000000;
+  --trash-lines: #000000;
+  --check: #ffffff;
   --check-background: #5c86ff;
   position: relative;
   border: none;
@@ -23,10 +22,10 @@
   color: var(--text);
   background: var(--btn, var(--background));
   box-shadow: 0 var(--shadow-y, 4px) var(--shadow-blur, 8px) var(--shadow);
-  transform: scale(var(--scale, 1));
+  transform: scale(var(--scale, 1.135));
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
-.button span {
+.delete-all-btn span {
   display: block;
   font-size: 14px;
   line-height: 25px;
@@ -36,7 +35,7 @@
   transition: transform 0.4s ease var(--span-delay, 0.2s),
     opacity 0.3s ease var(--span-delay, 0.2s);
 }
-.button .trash {
+.delete-all-btn .trash {
   display: block;
   position: relative;
   left: -8px;
@@ -44,8 +43,8 @@
     scale(var(--trash-scale, 0.64));
   transition: transform 0.5s;
 }
-.button .trash:before,
-.button .trash:after {
+.delete-all-btn .trash:before,
+.delete-all-btn .trash:after {
   content: '';
   position: absolute;
   height: 8px;
@@ -59,14 +58,14 @@
   transition: transform 0.4s, background 0.3s;
 }
 
-.button .trash:before {
+.delete-all-btn .trash:before {
   left: 1px;
 }
-.button .trash:after {
+.delete-all-btn .trash:after {
   right: 1px;
   --x: -3px;
 }
-.button .trash .top {
+.delete-all-btn .trash .top {
   position: absolute;
   overflow: hidden;
   left: -4px;
@@ -76,8 +75,8 @@
   z-index: 1;
   transform: translateY(2px);
 }
-.button .trash .top:before,
-.button .trash .top:after {
+.delete-all-btn .trash .top:before,
+.delete-all-btn .trash .top:after {
   content: '';
   position: absolute;
   border-radius: 1px;
@@ -88,14 +87,14 @@
   bottom: var(--b, 5px);
   transition: background 0.3s, transform 0.4s;
 }
-.button .trash .top:after {
+.delete-all-btn .trash .top:after {
   --w: 28px;
   --h: 2px;
   --l: 0;
   --b: 0;
   transform: scaleX(var(--trash-line-scale, 1));
 }
-.button .trash .top .paper {
+.delete-all-btn .trash .top .paper {
   width: 14px;
   height: 18px;
   background: var(--paper);
@@ -106,8 +105,8 @@
   transform: translateY(-16px);
   opacity: 0;
 }
-.button .trash .top .paper:before,
-.button .trash .top .paper:after {
+.delete-all-btn .trash .top .paper:before,
+.delete-all-btn .trash .top .paper:after {
   content: '';
   width: var(--w, 10px);
   height: 2px;
@@ -119,11 +118,11 @@
   transform: scaleY(0.7);
   box-shadow: 0 9px 0 var(--paper-lines);
 }
-.button .trash .top .paper:after {
+.delete-all-btn .trash .top .paper:after {
   --t: 5px;
   --w: 7px;
 }
-.button .trash .box {
+.delete-all-btn .trash .box {
   width: 20px;
   height: 25px;
   border: 2px solid var(--icon, var(--trash));
@@ -133,8 +132,8 @@
   z-index: 2;
   transition: border-color 0.3s;
 }
-.button .trash .box:before,
-.button .trash .box:after {
+.delete-all-btn .trash .box:before,
+.delete-all-btn .trash .box:after {
   content: '';
   position: absolute;
   width: 4px;
@@ -143,7 +142,7 @@
   left: var(--l, 50%);
   background: var(--b, var(--trash-lines));
 }
-.button .trash .box:before {
+.delete-all-btn .trash .box:before {
   border-radius: 2px;
   margin-left: -2px;
   transform: translateX(-3px) scale(0.6);
@@ -151,14 +150,14 @@
   opacity: var(--trash-lines-opacity, 1);
   transition: transform 0.4s, opacity 0.4s;
 }
-.button .trash .box:after {
+.delete-all-btn .trash .box:after {
   --h: 16px;
   --b: var(--paper);
   --l: 1px;
   transform: translate(-0.5px, -16px) scaleX(0.5);
   box-shadow: 7px 0 0 var(--paper), 14px 0 0 var(--paper), 21px 0 0 var(--paper);
 }
-.button .trash .check {
+.delete-all-btn .trash .check {
   padding: 4px 3px;
   border-radius: 50%;
   background: var(--check-background);
@@ -170,7 +169,7 @@
   transition: transform var(--check-duration, 0.2s) ease var(--check-delay, 0s),
     opacity var(--check-duration-opacity, 0.2s) ease var(--check-delay, 0s);
 }
-.button .trash .check svg {
+.delete-all-btn .trash .check svg {
   width: 8px;
   height: 6px;
   display: block;
@@ -183,7 +182,7 @@
   stroke: var(--check);
   transition: stroke-dashoffset 0.4s ease var(--checkmark-delay, 0.4s);
 }
-.button.delete {
+.delete-all-btn.delete {
   --span-opacity: 0;
   --span-x: 16px;
   --span-delay: 0s;
@@ -192,7 +191,7 @@
   --trash-scale: 1;
   --trash-lines-opacity: 0;
   --trash-line-scale: 0;
-  --icon: #fff;
+  --icon: #000000;
   --check-offset: 0;
   --check-opacity: 1;
   --check-scale: 1;
@@ -202,32 +201,32 @@
   --check-duration: 0.55s;
   --check-duration-opacity: 0.3s;
 }
-.button.delete .trash:before,
-.button.delete .trash:after {
+.delete-all-btn.delete .trash:before,
+.delete-all-btn.delete .trash:after {
   --sy: 1;
   --x: 0;
 }
-.button.delete .trash:before {
+.delete-all-btn.delete .trash:before {
   --r: 40deg;
 }
-.button.delete .trash:after {
+.delete-all-btn.delete .trash:after {
   --r: -40deg;
 }
-.button.delete .trash .top .paper {
+.delete-all-btn.delete .trash .top .paper {
   -webkit-animation: paper 1.5s linear forwards 0.5s;
   animation: paper 1.5s linear forwards 0.5s;
 }
-.button.delete .trash .box:after {
+.delete-all-btn.delete .trash .box:after {
   -webkit-animation: cut 1.5s linear forwards 0.5s;
   animation: cut 1.5s linear forwards 0.5s;
 }
-.button.delete,
-.button:hover {
+.delete-all-btn.delete,
+.delete-all-btn:hover {
   --btn: var(--background-hover);
   --shadow-y: 5px;
   --shadow-blur: 9px;
 }
-.button:active {
+.delete-all-btn:active {
   --shadow-y: 2px;
   --shadow-blur: 5px;
   --scale: 0.94;

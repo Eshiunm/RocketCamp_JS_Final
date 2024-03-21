@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/styles/output.css" />
     <link rel="stylesheet" href="./src/styles/deleteAllBtn.css" />
+    <link rel="stylesheet" href="./src/styles/output.css" />
+
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -491,7 +492,7 @@
           >
             刪除所有商品
           </button> -->
-          <button class="button delete-all-btn">
+          <button class="delete-all-btn">
             <div class="trash">
               <div class="top">
                 <div class="paper"></div>
@@ -503,7 +504,7 @@
                 </svg>
               </div>
             </div>
-            <span>Delete Item</span>
+            <span>刪除所有商品</span>
           </button>
           <div
             class="max-w-[280px] flex justify-between items-center gap-5 sm:gap-10 md:gap-20 hover:bg-white"
@@ -611,15 +612,14 @@
     <script type="module" src="./src/script/api/carts.js"></script>
     <script type="module" src="./src/script/api/orderClient.js"></script>
     <script>
-      document.querySelectorAll('.delete-all-btn').forEach((button) =>
-        button.addEventListener('click', (e) => {
-          if (!button.classList.contains('delete')) {
-            button.classList.add('delete');
-            setTimeout(() => button.classList.remove('delete'), 3200);
-          }
-          e.preventDefault();
-        })
-      );
+      const deleteAllBtn = document.querySelector('.delete-all-btn');
+      deleteAllBtn.addEventListener('click', (e) => {
+        if (!deleteAllBtn.classList.contains('delete')) {
+          deleteAllBtn.classList.add('delete');
+          setTimeout(() => deleteAllBtn.classList.remove('delete'), 2400);
+        }
+        e.preventDefault();
+      });
     </script>
   </body>
 </html>
