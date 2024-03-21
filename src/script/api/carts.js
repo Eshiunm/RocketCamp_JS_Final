@@ -25,7 +25,18 @@ function render(ary) {
       <span class="block">NT$${item.product.price}</span>
     </td>
     <td class="border-b border-[#BFBFBF] py-5 pr-5">
-      <span>${item.quantity}</span>
+    <select name="product-nums" class="bg-white-bg border border-gray-border rounded px-3 py-2" data-q-id="${
+      item.id
+    }">
+    <option value="${item.quantity}" selected disabled hidden>${
+      item.quantity
+    }</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
     </td>
     <td class="border-b border-[#BFBFBF] py-5 pr-5">
       <span class="block">NT$${item.product.price * item.quantity}</span>
@@ -109,6 +120,28 @@ deleteBtn.addEventListener('click', () => {
   axios
     .delete(path.carts(sessionPath))
     .then((res) => {
+      getCart(sessionPath);
+      return res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+//modified quantity
+cart.addEventListener('change', (e) => {
+  const id = e.target.parentNode.parentNode.getAttribute('data-id');
+  const quantity = Number(e.target.value);
+  const data = {
+    data: {
+      id,
+      quantity,
+    },
+  };
+  axios
+    .patch(path.carts(sessionPath), data)
+    .then((res) => {
+      console.log(res);
       getCart(sessionPath);
       return res;
     })
