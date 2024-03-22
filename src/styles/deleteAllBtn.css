@@ -41,7 +41,7 @@
   left: -8px;
   transform: translate(var(--trash-x, 0), var(--trash-y, 1px)) translateZ(0)
     scale(var(--trash-scale, 0.64));
-  transition: transform 0.5s;
+  transition: transform 0.1s;
 }
 .delete-all-btn .trash:before,
 .delete-all-btn .trash:after {
@@ -85,7 +85,7 @@
   height: var(--h, 2px);
   left: var(--l, 8px);
   bottom: var(--b, 5px);
-  transition: background 0.3s, transform 0.4s;
+  transition: background 0.3s, transform 0.1s;
 }
 .delete-all-btn .trash .top:after {
   --w: 28px;
@@ -165,7 +165,7 @@
   left: 2px;
   top: 24px;
   opacity: var(--check-opacity, 0);
-  transform: translateY(var(--check-y, 0)) scale(var(--check-scale, 0.2));
+  transform: translateY(var(--check-y, 0)) scale(var(--check-scale, 1));
   transition: transform var(--check-duration, 0.2s) ease var(--check-delay, 0s),
     opacity var(--check-duration-opacity, 0.2s) ease var(--check-delay, 0s);
 }
@@ -180,7 +180,7 @@
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke: var(--check);
-  transition: stroke-dashoffset 0.4s ease var(--checkmark-delay, 0.4s);
+  transition: stroke-dashoffset 0.1s ease var(--checkmark-delay, 0.2s);
 }
 .delete-all-btn.delete {
   --span-opacity: 0;
@@ -196,8 +196,8 @@
   --check-opacity: 1;
   --check-scale: 1;
   --check-y: 16px;
-  --check-delay: 1.7s;
-  --checkmark-delay: 2.1s;
+  --check-delay: 1s; /*  */
+  --checkmark-delay: 1.5s;
   --check-duration: 0.55s;
   --check-duration-opacity: 0.3s;
 }
@@ -212,13 +212,15 @@
 .delete-all-btn.delete .trash:after {
   --r: -40deg;
 }
+
+/* 東西被碎紙的動畫 */
 .delete-all-btn.delete .trash .top .paper {
-  -webkit-animation: paper 1.5s linear forwards 0.5s;
-  animation: paper 1.5s linear forwards 0.5s;
+  -webkit-animation: paper 0.8s linear forwards 0.1s;
+  animation: paper 0.8s linear forwards 0.2s;
 }
 .delete-all-btn.delete .trash .box:after {
-  -webkit-animation: cut 1.5s linear forwards 0.5s;
-  animation: cut 1.5s linear forwards 0.5s;
+  -webkit-animation: cut 0.8s linear forwards 0.1s;
+  animation: cut 0.8s linear forwards 0.2s;
 }
 .delete-all-btn.delete,
 .delete-all-btn:hover {
