@@ -106,11 +106,19 @@ cart.addEventListener('click', (e) => {
 
 //delete cartAll
 deleteBtn.addEventListener('click', () => {
+  if (cart.innerHTML === '') {
+    alert('購物車無資料');
+    return;
+  }
+  if (!deleteBtn.classList.contains('delete')) {
+    deleteBtn.classList.add('delete');
+    setTimeout(() => deleteBtn.classList.remove('delete'), 2400);
+  }
   axios
     .delete(path.carts(sessionPath))
     .then((res) => {
-      getCart(sessionPath);
-      return res;
+      cart.innerHTML = '';
+      document.querySelector('.total-amount').innerText = 'NT$0';
     })
     .catch((err) => {
       console.log(err);
