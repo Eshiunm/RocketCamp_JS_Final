@@ -58,6 +58,13 @@ function getCart(token) {
     .then((res) => {
       const ary = res.data.carts;
       render(ary);
+      if (ary.length === 0) {
+        document.querySelector('.clear-cart').classList.remove('hidden');
+        document.querySelector('.cart-section').classList.add('hidden');
+      } else {
+        document.querySelector('.clear-cart').classList.add('hidden');
+        document.querySelector('.cart-section').classList.remove('hidden');
+      }
       totalAmount.innerText = `NT$${res.data.finalTotal}`;
     })
     .catch((err) => {
@@ -94,6 +101,10 @@ productList.addEventListener('click', (e) => {
     .post(path.carts(sessionPath), data)
     .then((res) => {
       getCart(sessionPath);
+      if (!document.querySelector('.clear-cart').classList.contains('hidden')) {
+        document.querySelector('.clear-cart').classList.add('hidden');
+        document.querySelector('.cart-section').classList.remove('hidden');
+      }
       return res;
     })
     .catch((err) => {
@@ -130,6 +141,8 @@ deleteBtn.addEventListener('click', () => {
     .then((res) => {
       cart.innerHTML = '';
       document.querySelector('.total-amount').innerText = 'NT$0';
+      document.querySelector('.clear-cart').classList.remove('hidden');
+      document.querySelector('.cart-section').classList.add('hidden');
     })
     .catch((err) => {
       console.log(err);

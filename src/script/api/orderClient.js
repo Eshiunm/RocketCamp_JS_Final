@@ -5,6 +5,9 @@ function orderPost(formData) {
     .post(path.ordersCustomer(sessionStorage.getItem('path')), formData)
     .then((res) => {
       alert('已送出訂單！');
+      document.querySelector('.cart').innerHTML = '';
+      document.querySelector('.clear-cart').classList.remove('hidden');
+      document.querySelector('.cart-section').classList.add('hidden');
     })
     .catch((error) => {
       alert(error.response.data.message);
