@@ -1134,6 +1134,14 @@ body {
   background-image: url('../../public/images/landing/photo-1552848469-b4c949fdded7.png');
 }
 
+.bg-\[url\(\'\.\/public\/images\/landing\/photo-1552848469-b4c949fdded7\.png\'\)\]{
+  background-image: url('./public/images/landing/photo-1552848469-b4c949fdded7.png');
+}
+
+.bg-\[url\(\'\.\.\/\.\/public\/images\/landing\/photo-1552848469-b4c949fdded7\.png\'\)\]{
+  background-image: url('.././public/images/landing/photo-1552848469-b4c949fdded7.png');
+}
+
 .bg-cover{
   background-size: cover;
 }
