@@ -131,6 +131,14 @@ function renderCustomerOrder(data) {
   return str;
 }
 
+// 渲染訂單處理狀態
+function getProductStatus(status) {
+  if (status) {
+    return '已處理';
+  }
+  return '未處理';
+}
+
 // 渲染表格內容
 function renderTable(data) {
   let str = '';
@@ -155,7 +163,11 @@ function renderTable(data) {
               <td class="pl-4 py-3 border-[1.5px] border-black">
               ${getRealDate(item.createdAt)}</td>
               <td class="pl-4 py-3 border-[1.5px] border-black">
-                <a class="p-1 text-[#0067CE] underline cursor-pointer" data-state="notProcess">未處理</a>
+                <a 
+                  class="p-1 text-[#0067CE] underline cursor-pointer" 
+                        data-product-process="${item.paid}" 
+                        data-id="${item.id}">${getProductStatus(item.paid)}
+                </a>
               </td>
               <td class="border-[1.5px] border-black">
                 <button
@@ -213,13 +225,24 @@ orderTableBody.addEventListener('click', (e) => {
 // 修改訂單狀態(已處理 & 未處理)
 orderTableBody.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') {
-    if (e.target.getAttribute('data-state') === 'notProcess') {
-      e.target.textContent = '已處理';
-      e.target.setAttribute('data-state', 'process');
-    } else {
-      e.target.textContent = '未處理';
-      e.target.setAttribute('data-state', 'notProcess');
-    }
+    const obj = {
+      data: {
+        id: e.target.getAttribute('data-id'),
+        paid: e.target.getAttribute('data-product-process') === 'false',
+      },
+    };
+    axios
+      .put(path.ordersAdmin(apiPath), obj, {
+        headers: {
+          authorization: UID,
+        },
+      })
+      .then((res) => {
+        renderTable(res.data.orders);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 });
 

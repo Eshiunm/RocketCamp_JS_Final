@@ -448,9 +448,18 @@
         <h2 class="text-[28px] text-center mb-8 font-normal leading-10">
           我的購物車
         </h2>
+        <!-- 購物車內無任何商品時顯上以下區塊 -->
+        <div class="clear-cart mb-8">
+          <img
+            class="mx-auto w-[150px] h-[150px] mb-8"
+            src="./public/images/cart/cart-clear.png"
+            alt="clear-cart"
+          />
+          <p class="text-center text-2xl">您的購物車是空的</p>
+        </div>
         <!-- 購物車列表 -->
         <div
-          class="overflow-x-scroll lg:overflow-x-hidden max-w-[920px] mx-auto"
+          class="hidden cart-section overflow-x-scroll lg:overflow-x-hidden max-w-[920px] mx-auto"
         >
           <table
             class="w-[920px] table-auto text-left text-xl border-spacing-[20px]"
@@ -545,7 +554,7 @@
               type="tel"
               name="tel"
               id="tel"
-              placeholder="請輸入電話"
+              placeholder="請輸入手機號碼"
             />
             <!-- 驗證沒過的錯誤訊息 -->
             <div class="messages mt-1"></div>
@@ -604,9 +613,9 @@
         </form>
       </div>
     </section>
-    <script src="./src/script/axios.min.js"></script>
-    <script src="./src/script/underscore-min.js"></script>
-    <script src="./src/script/validate.min.js"></script>
+    <script src="./src/script/library/axios.min.js"></script>
+    <script src="./src/script/library/underscore-min.js"></script>
+    <script src="./src/script/library/validate.min.js"></script>
     <script type="module" src="./src/script/formValidate.js"></script>
     <script type="module" src="./src/script/api/products.js"></script>
     <script type="module" src="./src/script/api/carts.js"></script>
