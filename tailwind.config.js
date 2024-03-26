@@ -5,6 +5,7 @@ module.exports = {
     './backStage.html',
     './src/partials/*.html',
     './src/script/*.js',
+    './src/script/api/*.js',
   ],
   theme: {
     container: {

@@ -2,19 +2,20 @@ import path from './apiAll.js';
 
 function orderPost(formData) {
   axios
-    .post(path.ordersCustomer('mosi'), formData)
+    .post(path.ordersCustomer(sessionStorage.getItem('path')), formData)
     .then((res) => {
-      console.log(res);
       alert('已送出訂單！');
+      document.querySelector('.cart').innerHTML = '';
+      document.querySelector('.clear-cart').classList.remove('hidden');
+      document.querySelector('.cart-section').classList.add('hidden');
     })
     .catch((error) => {
-      console.log(error.response.data.message);
       alert(error.response.data.message);
     });
 }
 
 function submit(form) {
-  let formData = {
+  const formData = {
     data: {
       user: {},
     },
