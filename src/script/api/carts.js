@@ -88,6 +88,7 @@ function hasSessionPath() {
 hasSessionPath();
 
 getCart(sessionPath);
+
 // add Cart
 productList.addEventListener('click', (e) => {
   const id = e.target.parentNode.getAttribute('data-id');
@@ -105,6 +106,11 @@ productList.addEventListener('click', (e) => {
         document.querySelector('.clear-cart').classList.add('hidden');
         document.querySelector('.cart-section').classList.remove('hidden');
       }
+      Swal.fire({
+        title: '已加入購物車！',
+        icon: 'success',
+        timer: '1500',
+      });
       return res;
     })
     .catch((err) => {
@@ -119,6 +125,11 @@ cart.addEventListener('click', (e) => {
     .delete(path.cartsDeleteOne(sessionPath, id))
     .then((res) => {
       getCart(sessionPath);
+      Swal.fire({
+        title: '已刪除商品！',
+        icon: 'success',
+        timer: '1500',
+      });
       return res;
     })
     .catch((err) => {
